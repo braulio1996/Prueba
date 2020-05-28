@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head> 
+<h:body> 
+<h1>Lista Libros</h1>
+
+<h:form>
+
+<h:dataTable value="#{libroBean.listar()}" var="p" >
+								
+								<h:column>
+								<f:facet name="header">Titulo</f:facet>
+								#{p.titulo}
+								</h:column>
+								
+								<h:column>
+								<f:facet name="header">Anio Edicion</f:facet>
+								#{p.anioEdicion}
+								</h:column>
+								
+								<h:column>
+								<f:facet name="header">Editorial</f:facet>
+								#{p.editorial}
+								</h:column>
+								<h:column>
+								<f:facet name="header">Capitulos</f:facet>
+								<h:dataTable value="#{p.capitulos}" var="c"> 
+								
+								<h:column>
+								<f:facet name="header">Descripcion</f:facet>
+								#{c.descripsion}
+								</h:column>
+								<h:column>
+								<f:facet name="header">Autor</f:facet>
+								#{c.autor.nombre}
+								</h:column>
+								</h:dataTable>
+								</h:column>
+								
+								</h:dataTable>
+
+
+</h:form>
+
+</h:body> 
+</html>
